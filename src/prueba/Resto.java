@@ -1,5 +1,5 @@
 
-package resto31;
+package prueba;
 
 import accesoADatos.Conexion;
 import java.sql.Connection;
