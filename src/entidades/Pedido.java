@@ -1,22 +1,28 @@
 
 package entidades;
 
+import java.time.LocalDate;
+
 
 public class Pedido {
     
     private int idPedido;
-    private int idProducto;
-    private int idMesero;
     private int idMesa;
-
+    private String nombreMesero;
+    private LocalDate fechaHora;
+    private double importe;
+    private boolean cobrada;
+    
     public Pedido() {
     }
 
-    public Pedido(int idPedido, int idProducto, int idMesero, int idMesa) {
+    public Pedido(int idPedido, int idMesa, String nombreMesero, LocalDate fechaHora, double importe, boolean cobrada) {
         this.idPedido = idPedido;
-        this.idProducto = idProducto;
-        this.idMesero = idMesero;
         this.idMesa = idMesa;
+        this.nombreMesero = nombreMesero;
+        this.fechaHora = fechaHora;
+        this.importe = importe;
+        this.cobrada = cobrada;
     }
 
     public int getIdPedido() {
@@ -27,22 +33,6 @@ public class Pedido {
         this.idPedido = idPedido;
     }
 
-    public int getIdProducto() {
-        return idProducto;
-    }
-
-    public void setIdProducto(int idProducto) {
-        this.idProducto = idProducto;
-    }
-
-    public int getIdMesero() {
-        return idMesero;
-    }
-
-    public void setIdMesero(int idMesero) {
-        this.idMesero = idMesero;
-    }
-
     public int getIdMesa() {
         return idMesa;
     }
@@ -51,13 +41,42 @@ public class Pedido {
         this.idMesa = idMesa;
     }
 
+    public String getNombreMesero() {
+        return nombreMesero;
+    }
+
+    public void setNombreMesero(String nombreMesero) {
+        this.nombreMesero = nombreMesero;
+    }
+
+    public LocalDate getFechaHora() {
+        return fechaHora;
+    }
+
+    public void setFechaHora(LocalDate fechaHora) {
+        this.fechaHora = fechaHora;
+    }
+
+    public double getImporte() {
+        return importe;
+    }
+
+    public void setImporte(double importe) {
+        this.importe = importe;
+    }
+
+    public boolean isCobrada() {
+        return cobrada;
+    }
+
+    public void setCobrada(boolean cobrada) {
+        this.cobrada = cobrada;
+    }
+
     @Override
     public String toString() {
-        return "Pedido{" + "idPedido=" + idPedido + ", idProducto=" + idProducto + ", idMesero=" + idMesero + ", idMesa=" + idMesa + '}';
+        return super.toString(); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
 
-   
+    
 }
-

@@ -4,17 +4,19 @@ package entidades;
 public class Producto {
     private int idProducto;
     private String nombre;
-    private int cantidad;
     private double precio;
+    private int cantidad;
+    private boolean estado;
 
     public Producto() {
     }
 
-    public Producto(int idProducto, String nombre, int cantidad, double precio) {
+    public Producto(int idProducto, String nombre, double precio, int cantidad, boolean estado) {
         this.idProducto = idProducto;
         this.nombre = nombre;
-        this.cantidad = cantidad;
         this.precio = precio;
+        this.cantidad = cantidad;
+        this.estado = estado;
     }
 
     public int getIdProducto() {
@@ -33,14 +35,6 @@ public class Producto {
         this.nombre = nombre;
     }
 
-    public int getCantidad() {
-        return cantidad;
-    }
-
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
-    }
-
     public double getPrecio() {
         return precio;
     }
@@ -49,11 +43,26 @@ public class Producto {
         this.precio = precio;
     }
 
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
     @Override
     public String toString() {
-        return "Producto{" + "idProducto=" + idProducto + ", nombre=" + nombre + ", cantidad=" + cantidad + ", precio=" + precio + '}';
+        return "Producto{" + "idProducto=" + idProducto + ", nombre=" + nombre + ", precio=" + precio + ", cantidad=" + cantidad + ", estado=" + estado + '}';
     }
-    
-    
+
     
 }

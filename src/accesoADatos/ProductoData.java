@@ -59,13 +59,14 @@ Producto produ = null;
                 produ.setNombre(rs.getString("nombre"));
                 produ.setCantidad(rs.getInt("cantidad"));
                 produ.setPrecio(rs.getDouble("precio"));
-            
+                produ.setEstado(true);
+
             } else {
-                JOptionPane.showMessageDialog(null, "No existe el alumno");
+                JOptionPane.showMessageDialog(null, "No existe el producto");
             }
             ps.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Alumno: " + ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla producto: " + ex.getMessage());
         }
         return produ;
     

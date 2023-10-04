@@ -6,7 +6,7 @@ public class Mesa {
    private int idMesa;
    private int capacidad;
    private boolean estado;
-   private int idPedido;
+   private int numero;
 
     public Mesa() {
     }
@@ -15,7 +15,7 @@ public class Mesa {
         this.idMesa = idMesa;
         this.capacidad = capacidad;
         this.estado = estado;
-        this.idPedido = idPedido;
+        this.numero = idPedido;
     }
 
     public int getIdMesa() {
@@ -42,17 +42,17 @@ public class Mesa {
         this.estado = estado;
     }
 
-    public int getIdPedido() {
-        return idPedido;
+    public int getnumero() {
+        return numero;
     }
 
-    public void setIdPedido(int idPedido) {
-        this.idPedido = idPedido;
+    public void setnumero(int numero) {
+        this.numero = numero;
     }
 
     @Override
     public String toString() {
-        return "Mesa{" + "idMesa=" + idMesa + ", capacidad=" + capacidad + ", estado=" + estado + ", idPedido=" + idPedido + '}';
+        return "Mesa{" + "idMesa=" + idMesa + ", capacidad=" + capacidad + ", estado=" + estado + ", numero=" + numero + '}';
     }
 
    
