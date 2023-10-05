@@ -19,6 +19,14 @@ public class Producto {
         this.estado = estado;
     }
 
+    public Producto(String nombre, double precio, int cantidad, boolean estado) {
+        this.nombre = nombre;
+        this.precio = precio;
+        this.cantidad = cantidad;
+        this.estado = estado;
+    }
+    
+
     public int getIdProducto() {
         return idProducto;
     }
