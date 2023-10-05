@@ -30,6 +30,12 @@ public class Resto {
 //produData.modificarProducto(producto1); 
 
 
+//CONSULTA PRODUCTO
+
+ProductoData produData = new ProductoData();
+Producto pro = produData.consultarProducto("pizza");
+        System.out.println("Si tenemos disponible"+ pro.toString());
+
  
     }
     

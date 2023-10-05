@@ -80,24 +80,20 @@ public class ProductoData {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla producto: " + ex.getMessage());
         }
     }
-     
-   public void  altaProducto(Producto producto){
-       ProductoData pD = new ProductoData();
-       pD.altaProducto(producto);
-    }
-   
-   public void  bajaProducto(){
-       ProductoData pD = new ProductoData();
-       pD.bajaProducto();
+//     
+//   public void  altaProducto(Producto producto){
+//       ProductoData pD = new ProductoData();
+//       pD.altaProducto(producto);
+//    }
+//   
+//   public void modificarProducto(){
+//       ProductoData pD = new ProductoData();
+//       pD.modificarProducto();  
+ 
+ 
        
-   }
-   
-   public void modificarProducto(){
-       ProductoData pD = new ProductoData();
-       pD.modificarProducto();
-       
-   }
-        
+//   }
+//        
     public Producto consultarProducto(String nombre) {
         
 
@@ -106,7 +102,7 @@ Producto produ = null;
         PreparedStatement ps = null;
         try {
             ps = con.prepareStatement(sql);
-            ps.setString(2, nombre);
+            ps.setString(1, nombre);
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
