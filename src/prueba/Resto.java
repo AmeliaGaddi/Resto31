@@ -2,9 +2,12 @@
 package prueba;
 
 import accesoADatos.Conexion;
+import accesoADatos.PedidoData;
 import entidades.Producto;
 import accesoADatos.ProductoData;
+import entidades.Pedido;
 import java.sql.Connection;
+import java.time.LocalDate;
 
 public class Resto {
 
@@ -15,9 +18,9 @@ public class Resto {
         
          Connection con= Conexion.getConexion();
  //AGREGAR PRODUCTOS
-//Producto producto1 = new Producto("Lomo 3", 2500, 5, true);
+//Producto produ1 = new Producto("Shawarma", 2500, 15, true);
 //ProductoData produData = new ProductoData();//Guarda en la base
-//produData.agregarproducto(producto1);
+//produData.agregarproducto(produ1);
 
 
 //ELIMINA PRODUCTO
@@ -32,11 +35,16 @@ public class Resto {
 
 //CONSULTA PRODUCTO
 
-ProductoData produData = new ProductoData();
-Producto pro = produData.consultarProducto("pizza");
-        System.out.println("Si tenemos disponible"+ pro.toString());
+//ProductoData produData = new ProductoData();
+//Producto pro = produData.consultarProducto("pizza");
+//        System.out.println("Si tenemos disponible"+ pro.toString());
 
  
+// AGREGAR UN PEDIDO
+PedidoData pedid = new PedidoData();
+Pedido pe = new Pedido(0, 2, "Juanca", LocalDate.now(), 3000.2, false);
+pedid.agregarPedido(pe);
+
     }
     
 }
