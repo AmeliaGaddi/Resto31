@@ -54,7 +54,7 @@ public class PedidoData {
             ps.setInt(1, idPedido);
             int fila = ps.executeUpdate();
             if (fila == 1) {
-                JOptionPane.showMessageDialog(null, "Se eliminó el producto.");
+                JOptionPane.showMessageDialog(null, "Se eliminó el pedido.");
             } else{
                 JOptionPane.showMessageDialog(null, "No se encontró el pedido");
             }
@@ -65,16 +65,17 @@ public class PedidoData {
     }
     
    public void modificarPedido(Pedido pedi){ 
-       String sql = "UPDATE pedido SET idPedido = ?, idMesa = ?, nombreMesero = ?, fechaHora= ?, importe = ?, cobrada = ? WHERE idPedido = ?";
+       String sql = "UPDATE pedido SET idMesa = ?, nombreMesero = ?, fechaHora= ?, importe = ?, cobrada = ? WHERE idPedido = ?";
         PreparedStatement ps = null;
         try {
             ps = con.prepareStatement(sql);
-            ps.setInt(1, pedi.getIdPedido());
-            ps.setInt(2, pedi.getIdMesa());
-            ps.setString(3, pedi.getNombreMesero());
-            ps.setDate(4, Date.valueOf(pedi.getFechaHora()));
-            ps.setDouble(5, pedi.getImporte());
-            ps.setBoolean(6, pedi.isCobrada());
+            
+            ps.setInt(1, pedi.getIdMesa());
+            ps.setString(2, pedi.getNombreMesero());
+            ps.setDate(3, Date.valueOf(pedi.getFechaHora()));
+            ps.setDouble(4, pedi.getImporte());
+            ps.setBoolean(5, pedi.isCobrada());
+            ps.setInt(6, pedi.getIdPedido());
             
             int exito = ps.executeUpdate();//execute devuelve en un entero con la cantidad de filas afectadas
             if (exito == 1) { //va a devolver 1 porque el id es unico

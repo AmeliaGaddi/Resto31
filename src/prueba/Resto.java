@@ -40,10 +40,16 @@ public class Resto {
 //        System.out.println("Si tenemos disponible"+ pro.toString());
 
  
-// AGREGAR UN PEDIDO
+// ---AGREGAR UN PEDIDO---
 PedidoData pedid = new PedidoData();
-Pedido pe = new Pedido(0, 2, "Juanca", LocalDate.now(), 3000.2, false);
-pedid.agregarPedido(pe);
+//Pedido pe = new Pedido(5, 3, "Marcela", LocalDate.now(), 3500, true);
+//pedid.agregarPedido(pe);
+
+//   ---BORRAR UN PEDIDO---
+//pedid.borrarPedido(4);
+
+//   --- MODIFICAR PEDIDO ---
+//pedid.modificarPedido(pe);
 
     }
     
