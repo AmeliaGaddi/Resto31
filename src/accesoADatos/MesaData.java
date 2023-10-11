@@ -84,6 +84,35 @@ public void modificarMesa(Mesa me){
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla mesa");
         }
     }
+ 
+    public Mesa consultarMesa(int numero) {
+        
+
+        Mesa m = null;
+        String sql = "SELECT idMesa, capacidad, estado, numero  FROM mesa WHERE nombre = ?";
+        PreparedStatement ps = null;
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(4, numero);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                m = new Mesa(0, 0, true, 0);
+                m.setIdMesa(rs.getInt("IdMesa"));
+                m.setCapacidad(rs.getInt("capacidad"));
+                m.setEstado(true);
+                m.setnumero(rs.getInt("numero"));
+              
+            } else {
+                JOptionPane.showMessageDialog(null, "No existe la mesa");
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla m: " + ex.getMessage());
+        }
+        return m;
+    
+    }
     }
 
 
