@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import vistas.Inicio;
 
 public class Resto {
 
@@ -27,6 +28,8 @@ public class Resto {
       // Llamar al método listarPedidos() en la instancia creada
     List<Pedido> pedidos = pd.listarPedidos();
     
+       Inicio v1 = new Inicio();
+        v1.setVisible(true);
         //AGREGAR PRODUCTOS
 //Producto produ1 = new Producto("Shawarma", 2500, 15, true);
 //ProductoData produData = new ProductoData();//Guarda en la base

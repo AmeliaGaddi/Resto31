@@ -2,6 +2,7 @@
 package accesoADatos;
 
 import entidades.PedidoProducto;
+import entidades.Producto;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -9,6 +10,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 public class PedidoProductoData {
@@ -84,4 +87,7 @@ public class PedidoProductoData {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla pedidoproducto");
         }
     }
+
 }
+
+

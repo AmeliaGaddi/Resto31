@@ -8,10 +8,20 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 
 public class ProductoData {
+
+    public static void setVisible(boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public static void setLocationRelativeTo(Object object) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     private Connection con = null;
     
     public ProductoData(){
@@ -80,20 +90,7 @@ public class ProductoData {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla producto: " + ex.getMessage());
         }
     }
-//     
-//   public void  altaProducto(Producto producto){
-//       ProductoData pD = new ProductoData();
-//       pD.altaProducto(producto);
-//    }
-//   
-//   public void modificarProducto(){
-//       ProductoData pD = new ProductoData();
-//       pD.modificarProducto();  
- 
- 
-       
-//   }
-//        
+      
     public Producto consultarProducto(String nombre) {
         
 
@@ -123,5 +120,39 @@ Producto produ = null;
         return produ;
     
     }
+     public class ListaProductos{
+  //  public List<Producto> listar() {
+    private List<Producto> productos;
+    private int estado;
+   
+
+    public void Pedido() {
+        this.productos = new ArrayList<>();
+        this.estado = 0;
+    }
+
+    public void agregarProducto(Producto producto) {
+        this.productos.add(producto);
+    }
+
+    public void quitarProducto(Producto producto) {
+        this.productos.remove(producto);
+    }
+
+    public double calcularSubtotal() {
+        double subtotal = 0;
+        for (Producto producto : this.productos) {
+            subtotal += (producto.getCantidad()) * (producto.getPrecio());
+        }
+        return subtotal;
+    }
+        public List<Producto> listar() {
+        return this.productos;
+       
+    }
+       
+        }
+  
+    
     
 }
