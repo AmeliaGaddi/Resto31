@@ -35,6 +35,7 @@ public class VistaLogin extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -56,6 +57,7 @@ public class VistaLogin extends javax.swing.JFrame {
             }
         });
 
+        jbIniciar.setBackground(java.awt.SystemColor.activeCaption);
         jbIniciar.setFont(new java.awt.Font("Courier New", 1, 14)); // NOI18N
         jbIniciar.setText("Iniciar");
         jbIniciar.addActionListener(new java.awt.event.ActionListener() {
@@ -64,9 +66,10 @@ public class VistaLogin extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\rafa\\Downloads\\contrasena (2).png")); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icono contraseña.png"))); // NOI18N
         jLabel5.setText("jLabel5");
 
+        jButton1.setBackground(java.awt.SystemColor.activeCaption);
         jButton1.setFont(new java.awt.Font("Courier New", 1, 12)); // NOI18N
         jButton1.setText("Registrase");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -75,7 +78,9 @@ public class VistaLogin extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setText("Si es la primera vez que ingresa registrese ");
+        jLabel7.setText("Si es la primera vez que ingresa");
+
+        jLabel2.setText("complete sus datos y registrese");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -95,14 +100,17 @@ public class VistaLogin extends javax.swing.JFrame {
                             .addComponent(jLabel4)
                             .addComponent(jpContrasenia)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(125, 125, 125)
+                        .addGap(98, 98, 98)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
-                            .addComponent(jbIniciar)))
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel7)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addComponent(jLabel7)))
-                .addContainerGap(54, Short.MAX_VALUE))
+                        .addGap(123, 123, 123)
+                        .addComponent(jButton1))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(131, 131, 131)
+                        .addComponent(jbIniciar)))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,16 +125,18 @@ public class VistaLogin extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
                 .addComponent(jpContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(37, 37, 37)
                 .addComponent(jbIniciar)
-                .addGap(71, 71, 71)
+                .addGap(64, 64, 64)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(106, Short.MAX_VALUE))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, -1, -1));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, 360, -1));
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
 
@@ -222,6 +232,7 @@ public class VistaLogin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
