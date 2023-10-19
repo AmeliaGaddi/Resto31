@@ -29,7 +29,7 @@ public void agregarMesa(Mesa me){
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);//que me devuelva la lista de claves generadas
            
             ps.setInt(1,me.getIdMesa());
-            ps.setInt(2, me.getIdMesa());
+            ps.setInt(2, me.getCapacidad());
             ps.setBoolean(3, me.isEstado());
             ps.setInt(4, me.getnumero());
             ps.executeUpdate();
@@ -89,11 +89,11 @@ public void modificarMesa(Mesa me){
         
 
         Mesa m = null;
-        String sql = "SELECT idMesa, capacidad, estado, numero  FROM mesa WHERE nombre = ?";
+        String sql = "SELECT idMesa, capacidad, estado, numero  FROM mesa WHERE numero = ?";
         PreparedStatement ps = null;
         try {
             ps = con.prepareStatement(sql);
-            ps.setInt(4, numero);
+            ps.setInt(1, numero);
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
@@ -108,7 +108,7 @@ public void modificarMesa(Mesa me){
             }
             ps.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla m: " + ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla mesa: " + ex.getMessage());
         }
         return m;
     
