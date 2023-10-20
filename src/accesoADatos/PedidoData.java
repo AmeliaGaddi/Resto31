@@ -38,7 +38,7 @@ public class PedidoData {
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
-//                produ.setIdProducto(rs.getInt("idProducto"));
+                pedi.setIdPedido(rs.getInt("idProducto"));
                 JOptionPane.showMessageDialog(null, "Pedido añadido con éxito.");
             }
             ps.close();
