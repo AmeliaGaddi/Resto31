@@ -33,7 +33,7 @@ public class VistaLogin extends javax.swing.JFrame {
         jpContrasenia = new javax.swing.JPasswordField();
         jbIniciar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jbRegistrarse = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -69,18 +69,18 @@ public class VistaLogin extends javax.swing.JFrame {
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icono contraseña.png"))); // NOI18N
         jLabel5.setText("jLabel5");
 
-        jButton1.setBackground(java.awt.SystemColor.activeCaption);
-        jButton1.setFont(new java.awt.Font("Courier New", 1, 12)); // NOI18N
-        jButton1.setText("Registrase");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jbRegistrarse.setBackground(java.awt.SystemColor.activeCaption);
+        jbRegistrarse.setFont(new java.awt.Font("Courier New", 1, 12)); // NOI18N
+        jbRegistrarse.setText("Regístrate");
+        jbRegistrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jbRegistrarseActionPerformed(evt);
             }
         });
 
         jLabel7.setText("Si es la primera vez que ingresa");
 
-        jLabel2.setText("complete sus datos y registrese");
+        jLabel2.setText("complete sus datos y regístrese");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -105,11 +105,11 @@ public class VistaLogin extends javax.swing.JFrame {
                             .addComponent(jLabel2)
                             .addComponent(jLabel7)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(123, 123, 123)
-                        .addComponent(jButton1))
+                        .addGap(126, 126, 126)
+                        .addComponent(jbIniciar))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(131, 131, 131)
-                        .addComponent(jbIniciar)))
+                        .addGap(125, 125, 125)
+                        .addComponent(jbRegistrarse)))
                 .addContainerGap(43, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -125,14 +125,14 @@ public class VistaLogin extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
                 .addComponent(jpContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
+                .addGap(38, 38, 38)
                 .addComponent(jbIniciar)
-                .addGap(64, 64, 64)
+                .addGap(63, 63, 63)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(jbRegistrarse)
                 .addContainerGap(83, Short.MAX_VALUE))
         );
 
@@ -176,20 +176,23 @@ public class VistaLogin extends javax.swing.JFrame {
         validar();
     }//GEN-LAST:event_jbIniciarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jbRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRegistrarseActionPerformed
         try{
        
-        String nombre = jtUsuario.getText();
+        String usuario= jtUsuario.getText();
         String pass = String.valueOf(jpContrasenia.getPassword());
         
-            Login l = new Login(nombre, pass);
-            lodata.agregarUsuario(nombre, pass);
-       
-           
-       }catch(NumberFormatException ex){
+           if(!"".equals(usuario) && !"".equals(pass)){
+            Login log = new Login(usuario, pass);
+             lodata.agregarUsuario(log);
+              JOptionPane.showMessageDialog(this,"Usuario: "+usuario+", ha sido registrado ");
+        }else{
+          JOptionPane.showMessageDialog(this, "no puede estar vacio ");
+        }
+        }catch(NumberFormatException ex){
      JOptionPane.showMessageDialog(this, "Debe ingresar ");
-    }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    } 
+    }//GEN-LAST:event_jbRegistrarseActionPerformed
 
     /**
      * @param args the command line arguments
@@ -230,7 +233,6 @@ public class VistaLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -241,6 +243,7 @@ public class VistaLogin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JButton jbIniciar;
+    private javax.swing.JButton jbRegistrarse;
     private javax.swing.JPasswordField jpContrasenia;
     private javax.swing.JTextField jtUsuario;
     // End of variables declaration//GEN-END:variables
@@ -249,19 +252,37 @@ public void validar(){
 String usuario = jtUsuario.getText();
 String pass = String.valueOf(jpContrasenia.getPassword());
 
-if(!"".equals(usuario) || !"".equals(pass)){
-    log = lodata.log(usuario, pass);
-    if(log.getUsuario()!=null && log.getPass() != null){
-       
-        Menu sis = new Menu(); //Conectar con una ventana
-        sis.setVisible(true);
-        dispose();
-   
-    }else{
-    JOptionPane.showMessageDialog(this, "Usuario o contraseña invalidos");
-    }       
+   try{
+        if (!"".equals(usuario) && !"".equals(pass)) {
+        log = lodata.loguearse(usuario, pass);
 
+        if (log.getUsuario() != null && log.getPass() != null) {
+            JOptionPane.showMessageDialog(this, "Hola "+usuario+" pudes ingresar al Sistema");
+            Menu sis = new Menu();
+            sis.setVisible(true);
+            dispose();
+
+        } else {   //Esta linea no la toma
+            JOptionPane.showMessageDialog(this, "Usuario o contraseña invalidos");
+        }
+
+    } else {
+        JOptionPane.showMessageDialog(this, "Los campos no pueden estar vacios ");
+    }
+        }catch(NullPointerException e){
+            JOptionPane.showMessageDialog(this, "El usuario o contraseña no son las correctas ");
+            limpiarLogin();
+        }
+        
+        
+        
+        
+    }
+private void limpiarLogin(){
+        jtUsuario.setText("");
+        jpContrasenia.setText("");
+        
 }
 }
 
-}
+
