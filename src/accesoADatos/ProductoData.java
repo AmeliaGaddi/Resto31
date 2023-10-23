@@ -44,7 +44,7 @@ public class ProductoData {
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
-//                produ.setIdProducto(rs.getInt("idProducto"));
+                produ.setIdProducto(rs.getInt("idProducto"));
                 JOptionPane.showMessageDialog(null, "Producto añadido con éxito.");
             }
             ps.close();
@@ -109,6 +109,8 @@ Producto produ = null;
                 produ.setCantidad(rs.getInt("cantidad"));
                 produ.setPrecio(rs.getDouble("precio"));
                 produ.setEstado(true);
+                
+                JOptionPane.showMessageDialog(null, "Se encontrò el siguiente producto: " + produ.toString());
 
             } else {
                 JOptionPane.showMessageDialog(null, "No existe el producto");
