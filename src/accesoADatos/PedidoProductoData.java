@@ -38,8 +38,9 @@ public class PedidoProductoData {
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
-               pp.setIdProducto(rs.getInt("idPedidoProducto"));
+               pp.setIdPedidoProd(rs.getInt("idPedidoProducto"));
                 JOptionPane.showMessageDialog(null, "PedidoProducto añadido con éxito.");
+                JOptionPane.showMessageDialog(null, "Id del PP es: "+ pp.getIdPedidoProd());
             }
             ps.close();
         } catch(SQLException ex){
@@ -70,7 +71,7 @@ public class PedidoProductoData {
         }
         }
     
-    public void borrarPedido(int idPedidoProducto){
+    public void borrarPedidoProducto(int idPedidoProducto){
     try {
             String sql = "DELETE FROM pedido WHERE idPedidoProducto = ?";
               
