@@ -163,8 +163,8 @@ public class VistaConsultaProdu extends javax.swing.JFrame {
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
 
-        VistaProductos vp = new VistaProductos();
-        vp.setVisible(true);
+        VistaGestionProductos vgp = new VistaGestionProductos();
+        vgp.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
 

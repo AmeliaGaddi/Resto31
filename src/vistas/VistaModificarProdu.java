@@ -258,8 +258,8 @@ public class VistaModificarProdu extends javax.swing.JFrame {
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {                                          
 
-        VistaProductos vp = new VistaProductos();
-        vp.setVisible(true);
+        VistaGestionProductos vgp = new VistaGestionProductos();
+        vgp.setVisible(true);
         this.dispose();
 
     }                                         

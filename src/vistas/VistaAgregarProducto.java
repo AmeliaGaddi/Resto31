@@ -218,7 +218,7 @@ public class VistaAgregarProducto extends javax.swing.JFrame {
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         
-        VistaProductos vp = new VistaProductos();
+        VistaGestionProductos vp = new VistaGestionProductos();
         vp.setVisible(true);
         this.dispose();
         

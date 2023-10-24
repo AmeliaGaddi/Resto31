@@ -25,43 +25,51 @@ public class Menu extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jBMenu = new javax.swing.JButton();
-        jBPedidos = new javax.swing.JButton();
+        btnGestionPedi = new javax.swing.JButton();
         jBPagos = new javax.swing.JButton();
         jBEstadisticas = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnExit = new javax.swing.JButton();
+        btnGestionProdu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jBMenu.setText("Menu");
+        jPanel1.setBackground(new java.awt.Color(153, 153, 255));
+
+        jBMenu.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jBMenu.setText("Resto 31");
         jBMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBMenuActionPerformed(evt);
             }
         });
 
-        jBPedidos.setText("Pedidos");
-        jBPedidos.addActionListener(new java.awt.event.ActionListener() {
+        btnGestionPedi.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        btnGestionPedi.setText("Pedidos");
+        btnGestionPedi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBPedidosActionPerformed(evt);
+                btnGestionPediActionPerformed(evt);
             }
         });
 
+        jBPagos.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jBPagos.setText("Pagos");
 
+        jBEstadisticas.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jBEstadisticas.setText("Estadisticas");
 
-        jButton5.setText("Exit");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btnExit.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        btnExit.setText("Exit");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btnExitActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Agregar Producto");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnGestionProdu.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        btnGestionProdu.setText("Gestion de  Productos");
+        btnGestionProdu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnGestionProduActionPerformed(evt);
             }
         });
 
@@ -69,37 +77,42 @@ public class Menu extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton5)
-                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jBPagos)
-                    .addComponent(jBMenu))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
+                .addGap(55, 55, 55)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnGestionPedi, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                    .addComponent(jBPagos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jBEstadisticas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnGestionProdu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(53, 53, 53))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jBPedidos)
-                    .addComponent(jButton1)
-                    .addComponent(jBEstadisticas))
-                .addGap(31, 31, 31))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jBMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(238, 238, 238))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(244, 244, 244))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
+                .addGap(33, 33, 33)
+                .addComponent(jBMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBPedidos, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(42, 42, 42)
+                    .addComponent(btnGestionProdu, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnGestionPedi, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBPagos, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBEstadisticas, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
-                .addComponent(jButton5))
+                    .addComponent(jBPagos, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBEstadisticas, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -121,19 +134,29 @@ public class Menu extends javax.swing.JFrame {
           
     }//GEN-LAST:event_jBMenuActionPerformed
 
-    private void jBPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPedidosActionPerformed
+    private void btnGestionPediActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionPediActionPerformed
+        
+        VistaGestionPedidos vp = new VistaGestionPedidos();
+        vp.setVisible(true);
+        this.dispose();
         
         
-        
-    }//GEN-LAST:event_jBPedidosActionPerformed
+    }//GEN-LAST:event_btnGestionPediActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnGestionProduActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionProduActionPerformed
+        
+        VistaGestionProductos vgp = new VistaGestionProductos();
+        vgp.setVisible(true);
+        this.dispose();
+        
+        
+    }//GEN-LAST:event_btnGestionProduActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        
+        this.dispose();
+        
+    }//GEN-LAST:event_btnExitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -172,12 +195,12 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnGestionPedi;
+    private javax.swing.JButton btnGestionProdu;
     private javax.swing.JButton jBEstadisticas;
     private javax.swing.JButton jBMenu;
     private javax.swing.JButton jBPagos;
-    private javax.swing.JButton jBPedidos;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton5;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
