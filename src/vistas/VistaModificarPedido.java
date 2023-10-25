@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package vistas;
 
 import accesoADatos.PedidoData;
@@ -69,6 +65,11 @@ public class VistaModificarPedido extends javax.swing.JFrame {
                 txMesaActionPerformed(evt);
             }
         });
+        txMesa.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txMesaKeyTyped(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
@@ -87,10 +88,20 @@ public class VistaModificarPedido extends javax.swing.JFrame {
                 txMeseroActionPerformed(evt);
             }
         });
+        txMesero.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txMeseroKeyTyped(evt);
+            }
+        });
 
         txImporte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txImporteActionPerformed(evt);
+            }
+        });
+        txImporte.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txImporteKeyTyped(evt);
             }
         });
 
@@ -130,6 +141,11 @@ public class VistaModificarPedido extends javax.swing.JFrame {
         txIdPedido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txIdPedidoActionPerformed(evt);
+            }
+        });
+        txIdPedido.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txIdPedidoKeyTyped(evt);
             }
         });
 
@@ -271,6 +287,56 @@ public class VistaModificarPedido extends javax.swing.JFrame {
     private void txIdPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txIdPedidoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txIdPedidoActionPerformed
+
+    private void txIdPedidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txIdPedidoKeyTyped
+        
+         int key = evt.getKeyChar();
+        
+        boolean num = key >=48 && key <=57;
+        
+        if (!num) {
+            evt.consume();
+        }    
+        
+    }//GEN-LAST:event_txIdPedidoKeyTyped
+
+    private void txMesaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txMesaKeyTyped
+        
+         int key = evt.getKeyChar();
+        
+        boolean num = key >=48 && key <=57;
+        
+        if (!num) {
+            evt.consume();
+        }    
+        
+    }//GEN-LAST:event_txMesaKeyTyped
+
+    private void txImporteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txImporteKeyTyped
+        
+        int key = evt.getKeyChar();
+        
+        boolean num = key >=46 && key <=57;
+                
+        if (!num) {
+            evt.consume();
+        }  
+        
+    }//GEN-LAST:event_txImporteKeyTyped
+
+    private void txMeseroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txMeseroKeyTyped
+        
+        int key = evt.getKeyChar();
+        
+        boolean mayu = key >=65 && key <=90;
+        boolean minu = key >=97 && key <= 122;
+        boolean espa = key == 32;
+        
+        if (!(mayu || minu || espa)) {
+           evt.consume();
+        }
+        
+    }//GEN-LAST:event_txMeseroKeyTyped
 
     /**
      * @param args the command line arguments

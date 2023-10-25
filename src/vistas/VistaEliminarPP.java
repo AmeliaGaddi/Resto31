@@ -60,6 +60,11 @@ public class VistaEliminarPP extends javax.swing.JFrame {
                 txIdPPActionPerformed(evt);
             }
         });
+        txIdPP.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txIdPPKeyTyped(evt);
+            }
+        });
 
         btnLimpiar.setText("LIMPIAR");
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -164,6 +169,18 @@ public class VistaEliminarPP extends javax.swing.JFrame {
         vp.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
+
+    private void txIdPPKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txIdPPKeyTyped
+        
+         int key = evt.getKeyChar();
+        
+        boolean num = key >=48 && key <=57;
+        
+        if (!num) {
+            evt.consume();
+        }    
+        
+    }//GEN-LAST:event_txIdPPKeyTyped
 
     /**
      * @param args the command line arguments

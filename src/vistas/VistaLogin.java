@@ -56,6 +56,17 @@ public class VistaLogin extends javax.swing.JFrame {
                 jtUsuarioActionPerformed(evt);
             }
         });
+        jtUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtUsuarioKeyTyped(evt);
+            }
+        });
+
+        jpContrasenia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jpContraseniaKeyTyped(evt);
+            }
+        });
 
         jbIniciar.setBackground(java.awt.SystemColor.activeCaption);
         jbIniciar.setFont(new java.awt.Font("Courier New", 1, 14)); // NOI18N
@@ -161,8 +172,6 @@ public class VistaLogin extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 600));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\rafa\\Pictures\\resto900.jpg")); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 0, 600, -1));
 
         pack();
@@ -193,6 +202,16 @@ public class VistaLogin extends javax.swing.JFrame {
      JOptionPane.showMessageDialog(this, "Debe ingresar ");
     } 
     }//GEN-LAST:event_jbRegistrarseActionPerformed
+
+    private void jtUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtUsuarioKeyTyped
+        
+        
+        
+    }//GEN-LAST:event_jtUsuarioKeyTyped
+
+    private void jpContraseniaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jpContraseniaKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jpContraseniaKeyTyped
 
     /**
      * @param args the command line arguments

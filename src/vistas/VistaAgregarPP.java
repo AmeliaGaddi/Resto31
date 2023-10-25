@@ -64,6 +64,11 @@ public class VistaAgregarPP extends javax.swing.JFrame {
                 txIdPedidoActionPerformed(evt);
             }
         });
+        txIdPedido.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txIdPedidoKeyTyped(evt);
+            }
+        });
 
         btnLimpiar.setText("LIMPIAR");
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -97,6 +102,11 @@ public class VistaAgregarPP extends javax.swing.JFrame {
                 txIdProductoActionPerformed(evt);
             }
         });
+        txIdProducto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txIdProductoKeyTyped(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
@@ -107,6 +117,11 @@ public class VistaAgregarPP extends javax.swing.JFrame {
         txCantidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txCantidadActionPerformed(evt);
+            }
+        });
+        txCantidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txCantidadKeyTyped(evt);
             }
         });
 
@@ -223,6 +238,39 @@ public class VistaAgregarPP extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txCantidadActionPerformed
 
+    private void txIdPedidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txIdPedidoKeyTyped
+        
+        int key = evt.getKeyChar();
+        
+        boolean num = key >=48 && key <=57;
+        
+        if (!num) {
+            evt.consume();
+        }              
+    }//GEN-LAST:event_txIdPedidoKeyTyped
+
+    private void txIdProductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txIdProductoKeyTyped
+        
+         int key = evt.getKeyChar();
+        
+        boolean num = key >=48 && key <=57;
+        
+        if (!num) {
+            evt.consume();
+        }    
+    }//GEN-LAST:event_txIdProductoKeyTyped
+
+    private void txCantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txCantidadKeyTyped
+        
+         int key = evt.getKeyChar();
+        
+        boolean num = key >=48 && key <=57;
+        
+        if (!num) {
+            evt.consume();
+        }    
+        
+    }//GEN-LAST:event_txCantidadKeyTyped
     /**
      * @param args the command line arguments
      */

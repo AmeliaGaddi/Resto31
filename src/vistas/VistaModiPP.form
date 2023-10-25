@@ -175,6 +175,7 @@
         <Component class="javax.swing.JTextField" name="txIdPP">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txIdPPActionPerformed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txIdPPKeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel8">
@@ -231,16 +232,19 @@
         <Component class="javax.swing.JTextField" name="txIdPedido">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txIdPedidoActionPerformed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txIdPedidoKeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txIdProducto">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txIdProductoActionPerformed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txIdProductoKeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txCantidad">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txCantidadActionPerformed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txCantidadKeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnLimpiar">

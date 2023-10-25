@@ -67,6 +67,11 @@ public class VistaAgregarPedido extends javax.swing.JFrame {
                 txMesaActionPerformed(evt);
             }
         });
+        txMesa.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txMesaKeyTyped(evt);
+            }
+        });
 
         btnLimpiar.setText("LIMPIAR");
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -112,10 +117,20 @@ public class VistaAgregarPedido extends javax.swing.JFrame {
                 txMeseroActionPerformed(evt);
             }
         });
+        txMesero.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txMeseroKeyTyped(evt);
+            }
+        });
 
         txImporte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txImporteActionPerformed(evt);
+            }
+        });
+        txImporte.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txImporteKeyTyped(evt);
             }
         });
 
@@ -244,6 +259,43 @@ public class VistaAgregarPedido extends javax.swing.JFrame {
     private void txImporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txImporteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txImporteActionPerformed
+
+    private void txMesaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txMesaKeyTyped
+        
+         int key = evt.getKeyChar();
+        
+        boolean num = key >=48 && key <=57;
+                
+        if (!num) {
+            evt.consume();
+        }    
+                
+    }//GEN-LAST:event_txMesaKeyTyped
+
+    private void txMeseroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txMeseroKeyTyped
+        
+        int key = evt.getKeyChar();
+        
+        boolean mayu = key >=65 && key <=90;
+        boolean minu = key >=97 && key <= 122;
+        boolean espa = key == 32;
+        
+        if (!(mayu || minu || espa)) {
+           evt.consume();
+        }
+    }//GEN-LAST:event_txMeseroKeyTyped
+
+    private void txImporteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txImporteKeyTyped
+        
+        int key = evt.getKeyChar();
+        
+        boolean num = key >=46 && key <=57;
+                
+        if (!num) {
+            evt.consume();
+        }  
+                
+    }//GEN-LAST:event_txImporteKeyTyped
 
     /**
      * @param args the command line arguments

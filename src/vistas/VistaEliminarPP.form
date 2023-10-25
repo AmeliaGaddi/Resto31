@@ -141,6 +141,7 @@
         <Component class="javax.swing.JTextField" name="txIdPP">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txIdPPActionPerformed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txIdPPKeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnLimpiar">

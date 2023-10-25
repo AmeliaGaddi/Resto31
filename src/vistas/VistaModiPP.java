@@ -66,6 +66,11 @@ public class VistaModiPP extends javax.swing.JFrame {
                 txIdPPActionPerformed(evt);
             }
         });
+        txIdPP.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txIdPPKeyTyped(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
@@ -90,16 +95,31 @@ public class VistaModiPP extends javax.swing.JFrame {
                 txIdPedidoActionPerformed(evt);
             }
         });
+        txIdPedido.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txIdPedidoKeyTyped(evt);
+            }
+        });
 
         txIdProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txIdProductoActionPerformed(evt);
             }
         });
+        txIdProducto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txIdProductoKeyTyped(evt);
+            }
+        });
 
         txCantidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txCantidadActionPerformed(evt);
+            }
+        });
+        txCantidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txCantidadKeyTyped(evt);
             }
         });
 
@@ -250,6 +270,54 @@ public class VistaModiPP extends javax.swing.JFrame {
         this.dispose();
         
     }//GEN-LAST:event_btnVolverActionPerformed
+
+    private void txIdPPKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txIdPPKeyTyped
+        
+         int key = evt.getKeyChar();
+        
+        boolean num = key >=48 && key <=57;
+        
+        if (!num) {
+            evt.consume();
+        }    
+        
+    }//GEN-LAST:event_txIdPPKeyTyped
+
+    private void txIdPedidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txIdPedidoKeyTyped
+        
+         int key = evt.getKeyChar();
+        
+        boolean num = key >=48 && key <=57;
+        
+        if (!num) {
+            evt.consume();
+        }    
+        
+    }//GEN-LAST:event_txIdPedidoKeyTyped
+
+    private void txIdProductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txIdProductoKeyTyped
+        
+         int key = evt.getKeyChar();
+        
+        boolean num = key >=48 && key <=57;
+        
+        if (!num) {
+            evt.consume();
+        }    
+        
+    }//GEN-LAST:event_txIdProductoKeyTyped
+
+    private void txCantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txCantidadKeyTyped
+        
+         int key = evt.getKeyChar();
+        
+        boolean num = key >=48 && key <=57;
+        
+        if (!num) {
+            evt.consume();
+        }    
+        
+    }//GEN-LAST:event_txCantidadKeyTyped
 
     /**
      * @param args the command line arguments

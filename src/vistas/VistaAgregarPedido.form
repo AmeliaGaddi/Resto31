@@ -178,6 +178,7 @@
         <Component class="javax.swing.JTextField" name="txMesa">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txMesaActionPerformed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txMesaKeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnLimpiar">
@@ -258,11 +259,13 @@
         <Component class="javax.swing.JTextField" name="txMesero">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txMeseroActionPerformed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txMeseroKeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txImporte">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txImporteActionPerformed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txImporteKeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JRadioButton" name="rbtnCobrada">

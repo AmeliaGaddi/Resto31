@@ -67,6 +67,11 @@ public class VistaAgregarProducto extends javax.swing.JFrame {
                 txNombreActionPerformed(evt);
             }
         });
+        txNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txNombreKeyTyped(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
@@ -85,10 +90,20 @@ public class VistaAgregarProducto extends javax.swing.JFrame {
                 txPrecioActionPerformed(evt);
             }
         });
+        txPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txPrecioKeyTyped(evt);
+            }
+        });
 
         txCantidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txCantidadActionPerformed(evt);
+            }
+        });
+        txCantidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txCantidadKeyTyped(evt);
             }
         });
 
@@ -223,6 +238,44 @@ public class VistaAgregarProducto extends javax.swing.JFrame {
         this.dispose();
         
     }//GEN-LAST:event_btnVolverActionPerformed
+
+    private void txCantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txCantidadKeyTyped
+        
+         int key = evt.getKeyChar();
+        
+        boolean num = key >=48 && key <=57;
+        
+        if (!num) {
+            evt.consume();
+        }    
+        
+    }//GEN-LAST:event_txCantidadKeyTyped
+
+    private void txNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txNombreKeyTyped
+        
+        int key = evt.getKeyChar();
+        
+        boolean mayu = key >=65 && key <=90;
+        boolean minu = key >=97 && key <= 122;
+        boolean espa = key == 32;
+        
+        if (!(mayu || minu || espa)) {
+           evt.consume();
+        }
+        
+    }//GEN-LAST:event_txNombreKeyTyped
+
+    private void txPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txPrecioKeyTyped
+        
+        int key = evt.getKeyChar();
+        
+        boolean num = key >=46 && key <=57;
+                
+        if (!num) {
+            evt.consume();
+        }  
+        
+    }//GEN-LAST:event_txPrecioKeyTyped
 
     /**
      * @param args the command line arguments
