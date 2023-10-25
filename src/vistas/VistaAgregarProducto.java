@@ -213,6 +213,7 @@ public class VistaAgregarProducto extends javax.swing.JFrame {
         ProductoData pd = new ProductoData();
         Producto pro = new Producto();
         
+        
         pro.setNombre(txNombre.getText());
         pro.setPrecio(Double.parseDouble(txPrecio.getText()));
         pro.setCantidad(Integer.parseInt(txCantidad.getText()));
@@ -253,15 +254,7 @@ public class VistaAgregarProducto extends javax.swing.JFrame {
 
     private void txNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txNombreKeyTyped
         
-        int key = evt.getKeyChar();
         
-        boolean mayu = key >=65 && key <=90;
-        boolean minu = key >=97 && key <= 122;
-        boolean espa = key == 32;
-        
-        if (!(mayu || minu || espa)) {
-           evt.consume();
-        }
         
     }//GEN-LAST:event_txNombreKeyTyped
 

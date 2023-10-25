@@ -46,6 +46,7 @@ public class ProductoData {
             if (rs.next()) {
                 produ.setIdProducto(rs.getInt("idProducto"));
                 JOptionPane.showMessageDialog(null, "Producto añadido con éxito.");
+                JOptionPane.showMessageDialog(null, "Id nuevo Producto: "+ rs.getInt("idProducto"));
             }
             ps.close();
         } catch(SQLException ex){

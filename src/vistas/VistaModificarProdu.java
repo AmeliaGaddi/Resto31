@@ -269,15 +269,7 @@ public class VistaModificarProdu extends javax.swing.JFrame {
 
     private void txNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txNombreKeyTyped
         
-         int key = evt.getKeyChar();
         
-        boolean mayu = key >=65 && key <=90;
-        boolean minu = key >=97 && key <= 122;
-        boolean espa = key == 32;
-        
-        if (!(mayu || minu || espa)) {
-           evt.consume();
-        }
         
     }//GEN-LAST:event_txNombreKeyTyped
 

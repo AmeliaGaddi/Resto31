@@ -11,11 +11,11 @@ public class Mesa {
     public Mesa() {
     }
 
-    public Mesa(int idMesa, int capacidad, boolean estado, int idPedido) {
+    public Mesa(int idMesa, int capacidad, boolean estado, int numero) {
         this.idMesa = idMesa;
         this.capacidad = capacidad;
         this.estado = estado;
-        this.numero = idPedido;
+        this.numero = numero;
     }
 
     public int getIdMesa() {

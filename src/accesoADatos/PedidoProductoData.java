@@ -24,16 +24,15 @@ public class PedidoProductoData {
     
     public void agregarPedidoProducto(PedidoProducto pp){ 
     
-    String sql = "INSERT INTO pedidoproducto (idPedidoProducto,	idPedido, idProducto, cantidad) VALUES (?, ?, ?, ?)";
+    String sql = "INSERT INTO pedidoproducto (idPedido, idProducto, cantidad) VALUES (?, ?, ?)";
     
     try {
             //preparedStatement envian la setencia anterior
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);//que me devuelva la lista de claves generadas
            
-            ps.setInt(1,pp.getIdPedidoProd());
-            ps.setInt(2, pp.getIdPedido());
-            ps.setInt(3, pp.getIdProducto());
-            ps.setInt(4, pp.getCantidad());
+            ps.setInt(1, pp.getIdPedido());
+            ps.setInt(2, pp.getIdProducto());
+            ps.setInt(3, pp.getCantidad());
             
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();

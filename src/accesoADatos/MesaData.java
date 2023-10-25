@@ -35,8 +35,9 @@ public void agregarMesa(Mesa me){
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
-//                produ.setIdProducto(rs.getInt("idProducto"));
+                me.setIdMesa(rs.getInt("idMesa"));
                 JOptionPane.showMessageDialog(null, "Mesa añadida.");
+                JOptionPane.showMessageDialog(null, "Id mesa: "+ rs.getInt("idMesa"));
             }
             ps.close();
         } catch(SQLException ex){
