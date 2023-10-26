@@ -54,6 +54,11 @@ public class Menu extends javax.swing.JFrame {
 
         jBPagos.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jBPagos.setText("Pagos");
+        jBPagos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBPagosActionPerformed(evt);
+            }
+        });
 
         jBEstadisticas.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jBEstadisticas.setText("Estadisticas");
@@ -181,6 +186,15 @@ public class Menu extends javax.swing.JFrame {
         this.dispose();
         
     }//GEN-LAST:event_btnMesasActionPerformed
+
+    private void jBPagosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPagosActionPerformed
+        // TODO add your handling code here:
+        
+        VistaPagos vpa = new VistaPagos();
+        vpa.setVisible(true);
+        
+        this.dispose();
+    }//GEN-LAST:event_jBPagosActionPerformed
 
     /**
      * @param args the command line arguments
