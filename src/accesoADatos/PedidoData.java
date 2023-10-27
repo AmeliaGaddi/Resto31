@@ -118,24 +118,24 @@ public class Mesa{
     private List<Pedido> pedidos;
     private String estado;
 
-    public Mesa() {
-        this.pedidos = new ArrayList<>();
-        this.estado = "libre";
-    }
-
-    public void agregarPedido(Pedido pedido) {
-        this.pedidos.add(pedido);
-    }
-
-    public void quitarPedido(Pedido pedido) {
-        this.pedidos.remove(pedido);
-    }
-
-    public void listarPedidos() {
-        for (Pedido pedido : this.pedidos) {
-//            System.out.println(pedido.getProducto());
-        }
-    }
+//    public Mesa() {
+//        this.pedidos = new ArrayList<>();
+//        this.estado = "libre";
+//    }
+//
+//    public void agregarPedido(Pedido pedido) {
+//        this.pedidos.add(pedido);
+//    }
+//
+//    public void quitarPedido(Pedido pedido) {
+//        this.pedidos.remove(pedido);
+//    }
+//
+//    public void listarPedidos() {
+//        for (Pedido pedido : this.pedidos) {
+////            System.out.println(pedido.getProducto());
+//        }
+//    }
 
 //    public double listarIngresosFecha(Date fecha) {
 //        double ingresos = 0;

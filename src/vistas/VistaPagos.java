@@ -168,6 +168,7 @@ public class VistaPagos extends javax.swing.JFrame {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jTable1MouseClicked
 
     /**

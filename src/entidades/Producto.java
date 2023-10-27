@@ -9,6 +9,7 @@ public class Producto {
     private boolean estado;
 
     public Producto() {
+        
     }
 
     public Producto(int idProducto, String nombre, double precio, int cantidad, boolean estado) {
