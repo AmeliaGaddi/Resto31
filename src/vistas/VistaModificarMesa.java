@@ -19,6 +19,7 @@ public class VistaModificarMesa extends javax.swing.JFrame {
      */
     public VistaModificarMesa() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

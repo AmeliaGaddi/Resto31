@@ -12,6 +12,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import vistas.Inicio;
+import vistas.VistaLogin;
 
 public class Resto {
 
@@ -22,14 +23,20 @@ public class Resto {
 
         Connection con = Conexion.getConexion();
 
+        VistaLogin vl = new VistaLogin();
+         vl.setVisible(true);
+         vl.setLocationRelativeTo(null); 
+        
+        
+        
           // Crear una instancia de pedidoData
     PedidoData pd = new PedidoData();
     
       // Llamar al método listarPedidos() en la instancia creada
     List<Pedido> pedidos = pd.listarPedidos();
     
-       Inicio v1 = new Inicio();
-        v1.setVisible(true);
+//       Inicio v1 = new Inicio();
+//        v1.setVisible(true);
         //AGREGAR PRODUCTOS
 //Producto produ1 = new Producto("Shawarma", 2500, 15, true);
 //ProductoData produData = new ProductoData();//Guarda en la base

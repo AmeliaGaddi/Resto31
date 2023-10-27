@@ -19,6 +19,7 @@ public class VistaModificarProdu extends javax.swing.JFrame {
      */
     public VistaModificarProdu() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

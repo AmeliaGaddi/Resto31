@@ -19,6 +19,7 @@ public class VistaModiPP extends javax.swing.JFrame {
      */
     public VistaModiPP() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

@@ -20,6 +20,7 @@ public class VistaAgregarPedido extends javax.swing.JFrame {
      */
     public VistaAgregarPedido() {
         initComponents();
+        this.setLocationRelativeTo(null); 
     }
 
     /**

@@ -16,6 +16,7 @@ public class VistaConsultaPedido extends javax.swing.JFrame {
      */
     public VistaConsultaPedido() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

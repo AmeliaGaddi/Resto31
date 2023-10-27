@@ -19,6 +19,7 @@ public class VistaAgregarProducto extends javax.swing.JFrame {
      */
     public VistaAgregarProducto() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

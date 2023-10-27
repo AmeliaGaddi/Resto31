@@ -16,6 +16,7 @@ public class VistaGestionPP extends javax.swing.JFrame {
      */
     public VistaGestionPP() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

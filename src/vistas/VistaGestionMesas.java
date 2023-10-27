@@ -16,6 +16,7 @@ public class VistaGestionMesas extends javax.swing.JFrame {
      */
     public VistaGestionMesas() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

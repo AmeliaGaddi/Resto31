@@ -21,6 +21,7 @@ public class VistaPagos extends javax.swing.JFrame {
      */
     public VistaPagos() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

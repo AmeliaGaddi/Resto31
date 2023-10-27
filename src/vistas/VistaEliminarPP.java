@@ -19,6 +19,7 @@ public class VistaEliminarPP extends javax.swing.JFrame {
      */
     public VistaEliminarPP() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

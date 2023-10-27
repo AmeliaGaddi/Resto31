@@ -19,6 +19,7 @@ public class VistaAgregarPP extends javax.swing.JFrame {
      */
     public VistaAgregarPP() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

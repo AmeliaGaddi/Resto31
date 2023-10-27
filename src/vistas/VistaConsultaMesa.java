@@ -19,6 +19,7 @@ public class VistaConsultaMesa extends javax.swing.JFrame {
      */
     public VistaConsultaMesa() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

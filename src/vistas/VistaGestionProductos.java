@@ -16,6 +16,7 @@ public class VistaGestionProductos extends javax.swing.JFrame {
      */
     public VistaGestionProductos() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

@@ -16,6 +16,7 @@ public class VistaModificarPedido extends javax.swing.JFrame {
      */
     public VistaModificarPedido() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

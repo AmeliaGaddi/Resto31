@@ -16,6 +16,7 @@ public class VistaGestionPedidos extends javax.swing.JFrame {
      */
     public VistaGestionPedidos() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

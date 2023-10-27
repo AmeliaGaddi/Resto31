@@ -19,6 +19,7 @@ public class VistaConsultaProdu extends javax.swing.JFrame {
      */
     public VistaConsultaProdu() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
