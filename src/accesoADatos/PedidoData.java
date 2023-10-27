@@ -114,11 +114,11 @@ public class PedidoData {
        return pedidos;
     }
 
-public class Mesa{
-    private List<Pedido> pedidos;
-    private String estado;
-
-//    public Mesa() {
+//public class Mesa{
+//    private List<Pedido> pedidos;
+//    private String estado;
+//
+////    public Mesa() {
 //        this.pedidos = new ArrayList<>();
 //        this.estado = "libre";
 //    }
@@ -159,5 +159,5 @@ public class Mesa{
 }
 
 
-}
+
     

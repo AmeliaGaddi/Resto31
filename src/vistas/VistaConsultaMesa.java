@@ -176,6 +176,7 @@ public class VistaConsultaMesa extends javax.swing.JFrame {
         int mes = Integer.parseInt(txNumero.getText());
 
         pd.consultarMesa(mes);
+        
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed

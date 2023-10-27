@@ -275,7 +275,7 @@ public class VistaModificarPedido extends javax.swing.JFrame {
         pe.setImporte(Double.parseDouble(txImporte.getText()));
         pe.setCobrada(false);
 
-        pd.agregarPedido(pe);
+        pd.modificarPedido(pe);
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
