@@ -35,9 +35,9 @@ public void agregarMesa(Mesa me){
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
-                me.setIdMesa(rs.getInt("idMesa"));
+                //me.setIdMesa(rs.getInt("idMesa"));
                 JOptionPane.showMessageDialog(null, "Mesa añadida.");
-                JOptionPane.showMessageDialog(null, "Id mesa: "+ rs.getInt("idMesa"));
+                //JOptionPane.showMessageDialog(null, "Id mesa: "+ rs.getInt("idMesa"));
             }
             ps.close();
         } catch(SQLException ex){
@@ -103,7 +103,7 @@ public void modificarMesa(Mesa me){
                 m.setCapacidad(rs.getInt("capacidad"));
                 m.setEstado(true);
                 m.setnumero(rs.getInt("numero"));
-              
+                JOptionPane.showMessageDialog(null, "Se encontro la siguiente mesa :" + m.toString());
             } else {
                 JOptionPane.showMessageDialog(null, "No existe la mesa");
             }

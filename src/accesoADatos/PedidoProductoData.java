@@ -37,9 +37,9 @@ public class PedidoProductoData {
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
-               pp.setIdPedidoProd(rs.getInt("idPedidoProducto"));
+              //pp.setIdPedidoProd(rs.getInt("idPedidoProducto"));
                 JOptionPane.showMessageDialog(null, "PedidoProducto añadido con éxito.");
-                JOptionPane.showMessageDialog(null, "Id del PP es: "+ pp.getIdPedidoProd());
+                //JOptionPane.showMessageDialog(null, "Id del PP es: "+ rs.getNString("idPedidoprod"));
             }
             ps.close();
         } catch(SQLException ex){

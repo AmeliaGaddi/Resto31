@@ -38,9 +38,9 @@ public class PedidoData {
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
-                pedi.setIdPedido(rs.getInt("idPedido"));
+                //pedi.setIdPedido(rs.getInt("idPedido"));
                 JOptionPane.showMessageDialog(null, "Pedido añadido con éxito.");
-                JOptionPane.showMessageDialog(null, "el ID del pedido es: " + rs.getInt("idPedido"));
+                //JOptionPane.showMessageDialog(null, "el ID del pedido es: " + rs.getInt("idPedido"));
             }
             ps.close();
         } catch(SQLException ex){
