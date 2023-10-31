@@ -9,6 +9,7 @@ public class Pedido {
     private int idPedido;
     private int idMesa;
     private String nombreMesero;
+//    private LocalDate fechaHora;
     private LocalDate fechaHora;
     private double importe;
     private boolean cobrada;
@@ -24,6 +25,16 @@ public class Pedido {
         this.importe = importe;
         this.cobrada = cobrada;
     }
+
+    public Pedido(int idPedido, int idMesa, String nombreMesero, double importe, boolean cobrada) {
+        this.idPedido = idPedido;
+        this.idMesa = idMesa;
+        this.nombreMesero = nombreMesero;
+        this.importe = importe;
+        this.cobrada = cobrada;
+    }
+    
+    
 
     public int getIdPedido() {
         return idPedido;

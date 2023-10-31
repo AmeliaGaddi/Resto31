@@ -76,6 +76,11 @@ public class Menu extends javax.swing.JFrame {
 
         jBEstadisticas.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jBEstadisticas.setText("Estadisticas");
+        jBEstadisticas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBEstadisticasActionPerformed(evt);
+            }
+        });
 
         btnExit.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnExit.setText("Exit");
@@ -196,6 +201,12 @@ public class Menu extends javax.swing.JFrame {
         
         this.dispose();
     }//GEN-LAST:event_jBPagosActionPerformed
+
+    private void jBEstadisticasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEstadisticasActionPerformed
+        Estadistica est = new Estadistica();
+        est.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jBEstadisticasActionPerformed
 
     /**
      * @param args the command line arguments
