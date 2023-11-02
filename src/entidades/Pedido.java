@@ -89,5 +89,9 @@ public class Pedido {
         return super.toString(); //To change body of generated methods, choose Tools | Templates.
     }
 
+    public void setFechaHora() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     
 }

@@ -138,7 +138,7 @@ public class Estadistica extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTablaListas);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\rafa\\Pictures\\estadisticas 1000.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/estadisticas 1000.jpg"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -196,7 +196,7 @@ public class Estadistica extends javax.swing.JFrame {
        String nombre=JOptionPane.showInputDialog("Ingrese el nombre del mesero: ");
        borrarFilasPedido();
             for(Pedido p: ppd.listarPedidoCobroMeseroDia(nombre)){
-                modelo.addRow(new Object[]{p.getIdPedido(),p.getIdMesa(),p.getNombreMesero(),p.getFechaHora(),p.getImporte(),p.isCobrada()});
+                modelo.addRow(new Object[]{p.getIdMesa(),p.getNombreMesero(),p.getFechaHora(),p.getImporte()});
             }
     }//GEN-LAST:event_jButton2ActionPerformed
 

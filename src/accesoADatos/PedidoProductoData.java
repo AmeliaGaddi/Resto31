@@ -10,7 +10,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -103,7 +107,8 @@ public class PedidoProductoData {
             p.setIdPedido(rs.getInt("idPedido"));
             p.setIdMesa(rs.getInt("idMesa"));    
             p.setNombreMesero(rs.getString("nombreMsero"));
-//            p.setFechaHora(rs.getTimestamp("fecha_hora"));
+           p.setFechaHora();
+           
             p.setImporte(rs.getInt("importe"));
             p.setCobrada(rs.getBoolean("cobrada"));
             pedido.add(p);
@@ -120,7 +125,10 @@ public class PedidoProductoData {
     public List<Pedido> listarPedidoCobroMeseroDia(String nombre){//listar pedidos que cobro un mesero en particular 
         List<Pedido> pedido = new ArrayList<>();
       String sql = "SELECT * FROM pedido WHERE nombreMesero = ? and cobrada = 1";
+    
       
+    
+  
        try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, nombre);
@@ -131,7 +139,7 @@ public class PedidoProductoData {
             p.setIdPedido(rs.getInt("idPedido"));
             p.setIdMesa(rs.getInt("idMesa"));    
             p.setNombreMesero(rs.getString("nombreMesero"));
-//            p.setFechaHora(rs.getTimestamp("fecha_hora"));
+            p.setFechaHora(Date("fecha_hora"));
             p.setImporte(rs.getInt("importe"));
             p.setCobrada(rs.getBoolean("cobrada"));
             pedido.add(p);
@@ -191,6 +199,20 @@ public class PedidoProductoData {
         }
         return pedidos;
     }
-}
+
+    private LocalDate Date(String fecha_hora) {
+         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+    LocalDateTime localDateTime = timestamp.toLocalDateTime();
+    LocalDate localDate = localDateTime.toLocalDate();
+    System.out.println(localDate);
+    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+    String formattedDate = dateFormat.format(timestamp);
+    System.out.println(formattedDate);
+        return null;
+    }
+}  
+    
+
+
 
 

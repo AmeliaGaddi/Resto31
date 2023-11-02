@@ -8,7 +8,10 @@ import accesoADatos.ProductoData;
 import entidades.Mesa;
 import entidades.Pedido;
 import java.sql.Connection;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
@@ -27,8 +30,21 @@ public class Resto {
          vl.setVisible(true);
          vl.setLocationRelativeTo(null); 
         
+          Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+    LocalDateTime localDateTime = timestamp.toLocalDateTime();
+    LocalDate localDate = localDateTime.toLocalDate();
+    System.out.println(localDate);
+         
+  
+    //Este código crea una instancia de Timestamp con la fecha y hora actual y la imprime en la consola
         
-        
+    //  Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+    
+    //Este código crea una instancia de Timestamp con la fecha y hora actual, crea una instancia de SimpleDateFormat con el patrón “dd/MM/yyyy HH:mm:ss” y formatea la fecha y hora en una cadena de texto según ese patrón.
+    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+    String formattedDate = dateFormat.format(timestamp);
+    System.out.println(formattedDate);
+    
           // Crear una instancia de pedidoData
     PedidoData pd = new PedidoData();
     

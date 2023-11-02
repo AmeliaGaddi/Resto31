@@ -8,8 +8,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -32,7 +35,10 @@ public class PedidoData {
             
             ps.setInt(1, pedi.getIdMesa());
             ps.setString(2, pedi.getNombreMesero());
-            ps.setDate(3, Date.valueOf(pedi.getFechaHora()));
+        Calendar clndr = null;
+        Timestamp DateTimeFormatter = null;
+            ps.setTimestamp(3, DateTimeFormatter, clndr);
+//            ps.setDate(3, Date.valueOf(pedi.getFechaHora()));
             ps.setDouble(4, pedi.getImporte());
             ps.setBoolean(5, pedi.isCobrada());
             ps.executeUpdate();

@@ -3,7 +3,6 @@ package accesoADatos;
 
 import entidades.Producto;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -155,6 +154,29 @@ Producto produ = null;
     }
        
         }
+     
+ public List<Producto> listarProductoFi() {
+        List<Producto> productos = new ArrayList<>();
+        try {
+            String sql = "SELECT * FROM producto";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Producto pro= new Producto();
+                pro.setIdProducto(rs.getInt("idProducto"));
+                pro.setNombre(rs.getString("nombre"));
+                pro.setCantidad(rs.getInt("cantidad"));
+                pro.setPrecio(rs.getDouble("precio"));
+               
+                productos.add(pro);
+                
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla producto: " + ex.getMessage());
+        }
+        return productos;
+    }
   
     
     

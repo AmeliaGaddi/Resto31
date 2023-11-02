@@ -5,28 +5,41 @@
  */
 package vistas;
 
-import accesoADatos.PedidoData;
-import entidades.Producto;
-import entidades.Pedido;
+//import entidades.Pedido;
 import accesoADatos.ProductoData;
-import entidades.PedidoProducto;
+import entidades.Producto;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
+import java.util.Date;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
 
 public class VistaPagos extends javax.swing.JFrame {
-
-    private ArrayList<Object> pedidos;
+    
+     private DefaultTableModel modelo = new DefaultTableModel();
+    private ArrayList<Object> pedidoproducto;
     private String estado;
-
+     Producto pp = new Producto();
+     ProductoData pd = new ProductoData();
+      Date fechaActual = new Date();
+    String fechaFormato = new SimpleDateFormat("yyyy-MM-dd").format(fechaActual);
+     double Totalpagar = 00000.00;
+     
     /**
      * Creates new form VistaPagos
      */
     public VistaPagos() {
         initComponents();
+        
         this.setLocationRelativeTo(null);
+        armarCabecera();
+         modelo = new DefaultTableModel();
+        modelo.addColumn("Producto");
+        modelo.addColumn("Cantidad");
+        modelo.addColumn("Precio");
+        
+        jTFactura.setModel(modelo);
     }
 
     /**
@@ -41,17 +54,18 @@ public class VistaPagos extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTFactura = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jTFechaHora = new javax.swing.JTextField();
-        jTMesa = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jBVolver = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jCBMesa = new javax.swing.JComboBox<>();
+        jLTotalpg = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTSubtotal = new javax.swing.JTable();
+        jLabel8 = new javax.swing.JLabel();
 
         jLabel3.setText("jLabel3");
 
@@ -59,28 +73,30 @@ public class VistaPagos extends javax.swing.JFrame {
 
         jPanel1.setForeground(new java.awt.Color(255, 204, 204));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTFactura.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Plato", "Cant", "Precio", "Subtotal"
+                "Plato", "Cant", "Precio"
             }
         ));
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTFactura.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable1MouseClicked(evt);
+                jTFacturaMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTFactura);
 
         jLabel1.setText("Fecha y Hora:");
 
-        jLabel2.setText("Nro Mesa:");
+        jTFechaHora.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTFechaHoraActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Total a pagar:");
-
-        jLabel5.setText("00.00");
 
         jBVolver.setText("Volver");
         jBVolver.addActionListener(new java.awt.event.ActionListener() {
@@ -94,91 +110,117 @@ public class VistaPagos extends javax.swing.JFrame {
 
         jLabel7.setText("Mesa");
 
-        jCBMesa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mesa 1", "Mesa 2", "Mesa 3", "Mesa 4", "Mesa 5" }));
+        jCBMesa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ingrese mesa", "mesa 1", "mesa 2", "mesa 3", "mesa 4" }));
         jCBMesa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCBMesaActionPerformed(evt);
             }
         });
 
+        jLTotalpg.setText("00.00");
+        jLTotalpg.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLTotalpgMouseClicked(evt);
+            }
+        });
+
+        jTSubtotal.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Subtotal"
+            }
+        ));
+        jTSubtotal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTSubtotalMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jTSubtotal);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addGap(50, 50, 50)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTMesa, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
-                    .addComponent(jTFechaHora))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(58, 58, 58))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jBVolver))
-                        .addGap(22, 22, 22))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(36, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(158, 158, 158)
-                        .addComponent(jLabel6))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addComponent(jLabel7)
                         .addGap(32, 32, 32)
+                        .addComponent(jLabel1)
+                        .addGap(38, 38, 38)
+                        .addComponent(jTFechaHora, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLTotalpg)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jBVolver))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(152, 152, 152)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addComponent(jLabel7)
+                        .addGap(28, 28, 28)
                         .addComponent(jCBMesa, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(20, 20, 20))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel6)
-                .addGap(14, 14, 14)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jCBMesa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTFechaHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(jTMesa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(32, 32, 32))
+                            .addComponent(jCBMesa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7))
+                        .addGap(306, 306, 306)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(16, 16, 16)
+                        .addComponent(jLTotalpg))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jBVolver)
-                        .addContainerGap())))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTFechaHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
+                        .addContainerGap())
+                    .addComponent(jBVolver, javax.swing.GroupLayout.Alignment.TRAILING)))
         );
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/resto pagos.jpg"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel8)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 60, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -193,28 +235,57 @@ public class VistaPagos extends javax.swing.JFrame {
                
     }//GEN-LAST:event_jBVolverActionPerformed
 
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+    private void jTFacturaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTFacturaMouseClicked
         // TODO add your handling code here:
+    
 
-        this.pedidos = new ArrayList<>();
+        this.pedidoproducto = new ArrayList<>();
        this.estado = "libre";
         Object pedido = null;
- 
-        this.pedidos.add(pedido);
-        this.pedidos.remove(pedido);
+           this.pedidoproducto.add(pedido);
+           this.pedidoproducto.remove(pedido);
+      
         Object PedidoProducto = null;
-        this.pedidos.add(PedidoProducto);
+        this.pedidoproducto.add(pedido);
+      
     
 
     
        
     
-    }//GEN-LAST:event_jTable1MouseClicked
+    }//GEN-LAST:event_jTFacturaMouseClicked
 
     private void jCBMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBMesaActionPerformed
         // TODO add your handling code here:
-        
+        limpiarFilas();
+        llenarTabla();
+      
+            
+       
     }//GEN-LAST:event_jCBMesaActionPerformed
+
+    private void jLTotalpgMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLTotalpgMouseClicked
+        // TODO add your handling code here:
+//    
+//        public List<Producto> listar() {
+//        return this.productos;
+//        double Totalpagar = 0.00;
+//        int numFila = jTFactura.getRowCount();
+//        for (int i = 0; i < numFila; i++) {
+//            double cal = Double.parseDouble(String.valueOf(jTFactura.getModel().getValueAt(i, 4)));
+//            Totalpagar += cal;
+//        }
+//        jLTotalpg.setText(String.format("%.2f", Totalpagar));
+//        
+    }//GEN-LAST:event_jLTotalpgMouseClicked
+
+    private void jTFechaHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFechaHoraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFechaHoraActionPerformed
+
+    private void jTSubtotalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTSubtotalMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTSubtotalMouseClicked
 
     /**
      * @param args the command line arguments
@@ -251,39 +322,78 @@ public class VistaPagos extends javax.swing.JFrame {
             }
         });
     }
-        private void TotalPagar(JTable tabla, JLabel label) {
-        double Totalpagar = 0.00;
-        int numFila = tabla.getRowCount();
-        for (int i = 0; i < numFila; i++) {
-            double cal = Double.parseDouble(String.valueOf(tabla.getModel().getValueAt(i, 4)));
-            Totalpagar += cal;
-        }
-        label.setText(String.format("%.2f", Totalpagar));
-    }
-            public void verPedido(int id_pedido) {
-                Pedido ped = new Pedido();
-                
-        
-        jBVolver.setText("" + ped.getImporte());
-        jTFechaHora.setText("" + ped.getFechaHora());
-        jTMesa.setText("" + ped.getIdMesa());
-
-    }
+//        private void TotalPagar(JTable tabla, JLabel label) {
+//        double Totalpagar = 0.00;
+//        int numFila = tabla.getRowCount();
+//        for (int i = 0; i < numFila; i++) {
+//            double cal = Double.parseDouble(String.valueOf(tabla.getModel().getValueAt(i, 4)));
+//            Totalpagar += cal;
+//        }
+//        label.setText(String.format("%.2f", Totalpagar));
+//    }
+//            public void verProducto(int id_producto) {
+//                Producto produ = new Producto();
+//               
+//        
+//        jBVolver.setText("" + produ.getNombre());
+//        jTFechaHora.setText("" + ());
+////        jTMesa.setText("" + produ.getPrecio());
+//        jLTotalpg.setText(estado);
+//
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBVolver;
     private javax.swing.JComboBox<String> jCBMesa;
+    private javax.swing.JLabel jLTotalpg;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTFactura;
     private javax.swing.JTextField jTFechaHora;
-    private javax.swing.JTextField jTMesa;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTSubtotal;
     // End of variables declaration//GEN-END:variables
+public void armarCabecera(){
+   ArrayList<Object>titulo = new ArrayList();
+// titulo.add("ID");
+ titulo.add("producto");
+ titulo.add("cantidad");
+ titulo.add("precio");
+ 
+
+ for(Object tit:titulo){
+ modelo.addColumn(tit);
+ }
+ jTFactura.setModel(modelo);
+
+
 }
+
+private void limpiarFilas(){
+  int filas=jTFactura.getRowCount()-1;
+  for(;filas>=0;filas--){
+  modelo.removeRow(filas);
+  }
+
+}
+
+   private void llenarTabla() {
+       limpiarFilas();
+    
+            for(Producto p:pd.listarProductoFi()){
+               modelo.addRow(new Object[]{pp.getNombre(),pp.getCantidad(),pp.getPrecio()});
+
+            }
+    }
+}
+
+
+
+
+
