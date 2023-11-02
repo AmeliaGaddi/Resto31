@@ -13,6 +13,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
+import accesoADatos.MesaData;
+import accesoADatos.PedidoData;
+import accesoADatos.PedidoProductoData;
+import entidades.Pedido;
+import javax.swing.JOptionPane;
+
 
 
 public class VistaPagos extends javax.swing.JFrame {
@@ -25,6 +31,7 @@ public class VistaPagos extends javax.swing.JFrame {
       Date fechaActual = new Date();
     String fechaFormato = new SimpleDateFormat("yyyy-MM-dd").format(fechaActual);
      double Totalpagar = 00000.00;
+     PedidoProductoData ppd = new PedidoProductoData();
      
     /**
      * Creates new form VistaPagos
@@ -60,11 +67,10 @@ public class VistaPagos extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jBVolver = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jCBMesa = new javax.swing.JComboBox<>();
         jLTotalpg = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTSubtotal = new javax.swing.JTable();
+        jBMesa = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
 
         jLabel3.setText("jLabel3");
@@ -108,15 +114,6 @@ public class VistaPagos extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 153, 153));
         jLabel6.setText("Finalizar Pedido");
 
-        jLabel7.setText("Mesa");
-
-        jCBMesa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ingrese mesa", "mesa 1", "mesa 2", "mesa 3", "mesa 4" }));
-        jCBMesa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCBMesaActionPerformed(evt);
-            }
-        });
-
         jLTotalpg.setText("00.00");
         jLTotalpg.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -139,6 +136,13 @@ public class VistaPagos extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jTSubtotal);
 
+        jBMesa.setText("Ingrese Mesa");
+        jBMesa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBMesaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -158,13 +162,10 @@ public class VistaPagos extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jBVolver))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(152, 152, 152)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addComponent(jLabel7)
-                        .addGap(28, 28, 28)
-                        .addComponent(jCBMesa, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(84, 84, 84)
+                        .addComponent(jBMesa)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(20, 20, 20))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -177,17 +178,15 @@ public class VistaPagos extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(63, 63, 63)
+                        .addContainerGap()
+                        .addComponent(jBMesa)
+                        .addGap(29, 29, 29)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jCBMesa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7))
-                        .addGap(306, 306, 306)))
+                        .addGap(306, 337, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -255,15 +254,6 @@ public class VistaPagos extends javax.swing.JFrame {
     
     }//GEN-LAST:event_jTFacturaMouseClicked
 
-    private void jCBMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBMesaActionPerformed
-        // TODO add your handling code here:
-        limpiarFilas();
-        llenarTabla();
-      
-            
-       
-    }//GEN-LAST:event_jCBMesaActionPerformed
-
     private void jLTotalpgMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLTotalpgMouseClicked
         // TODO add your handling code here:
 //    
@@ -276,7 +266,7 @@ public class VistaPagos extends javax.swing.JFrame {
 //            Totalpagar += cal;
 //        }
 //        jLTotalpg.setText(String.format("%.2f", Totalpagar));
-//        
+        
     }//GEN-LAST:event_jLTotalpgMouseClicked
 
     private void jTFechaHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFechaHoraActionPerformed
@@ -286,6 +276,16 @@ public class VistaPagos extends javax.swing.JFrame {
     private void jTSubtotalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTSubtotalMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jTSubtotalMouseClicked
+
+    private void jBMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBMesaActionPerformed
+        // TODO add your handling code here:
+        limpiarFilas();
+        
+            int mesa= Integer.parseInt(JOptionPane.showInputDialog("Ingrese numero de mesa a buscar: "));
+          for(Pedido p: ppd.listarPedidoMesa(mesa)){
+                modelo.addRow(new Object[]{p.getIdMesa(),p.getNombreMesero(),p.getImporte(),p.isCobrada()});
+            }
+    }//GEN-LAST:event_jBMesaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -343,14 +343,13 @@ public class VistaPagos extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBMesa;
     private javax.swing.JButton jBVolver;
-    private javax.swing.JComboBox<String> jCBMesa;
     private javax.swing.JLabel jLTotalpg;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

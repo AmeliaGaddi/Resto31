@@ -205,7 +205,7 @@ public class Estadistica extends javax.swing.JFrame {
         int mesa= Integer.parseInt(JOptionPane.showInputDialog("Ingrese numero de mesa a buscar: "));
         borrarFilasPedido();
             for(Pedido p: ppd.listarPedidoMesa(mesa)){
-                modelo.addRow(new Object[]{p.getIdPedido(),p.getIdMesa(),p.getNombreMesero(),p.getFechaHora(),p.getImporte(),p.isCobrada()});
+                modelo.addRow(new Object[]{p.getIdMesa(),p.getNombreMesero(),p.getFechaHora(),p.getImporte(),p.isCobrada()});
             }
         
     }//GEN-LAST:event_jbPedidosPorMesaActionPerformed
@@ -268,7 +268,7 @@ public class Estadistica extends javax.swing.JFrame {
 public void armarCabecera(){
    ArrayList<Object>titulo = new ArrayList();
 // titulo.add("ID");
- titulo.add("ID Mesa");
+ titulo.add("Mesa");
  titulo.add("Nombre Mesero");
  titulo.add("Fecha");
  titulo.add("Importe");
@@ -288,7 +288,7 @@ int filas=jTablaListas.getRowCount()-1;
 private void llenarTablaPedidoTotal(){
             borrarFilasPedido();
             for(Pedido p:ppd.listarPedidoTotal()){
-                modelo.addRow(new Object[]{p.getIdPedido(),p.getIdMesa(),p.getNombreMesero(),p.getFechaHora(),p.getImporte(),p.isCobrada()});
+                modelo.addRow(new Object[]{p.getIdMesa(),p.getNombreMesero(),p.getFechaHora(),p.getImporte(),p.isCobrada()});
             }
     }
 }
